@@ -1,6 +1,8 @@
 pg-search-thai
 ============================
 
+**NOTE** This repo has been updated to keep up with libthai 0.1.28-4 (Deb). Therefore, it's working with the new versions of Postgresql including 13 (the one I'm using with).
+
 pg-search-thai is full text search _PostgreSQL_ extension for Thai Language.
 
 Its main purpose is:
