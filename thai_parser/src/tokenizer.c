@@ -11,7 +11,7 @@
  *-------------------------------------------------------------------------
  */
 
-#include <thai/thbrk.h>
+#include </usr/include/thai/thbrk.h>
 #include "thai_parser.h"
 #include "converter.h"
 #include "tokenizer.h"
@@ -22,10 +22,12 @@ int th_ubrk(char* text, int* pos, int text_len)
     char* tis_text = calloc(text_len, sizeof(char));
     conv_code("utf-8", "tis620", text, text_len, tis_text, text_len);
 
-    num = th_brk((const thchar_t*)tis_text, pos, text_len);
+    ThBrk* _th_brk = th_brk_new(NULL);
+    num = th_brk_find_breaks(_th_brk, (const thchar_t*)tis_text, pos, text_len);
     trans_pos(tis_text, pos, num);
 
     free(tis_text);
+    th_brk_delete(_th_brk);
     return num;
 }
 
