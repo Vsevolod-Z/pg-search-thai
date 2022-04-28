@@ -1,4 +1,4 @@
-FROM bitnami/postgresql:13 as builder
+FROM bitnami/postgresql:14 as builder
 USER root
 WORKDIR /build
 COPY . .
@@ -7,8 +7,14 @@ RUN apt update -y && apt install -y git libthai-dev libc6-dev build-essential &&
 	make all
 
 
-FROM bitnami/postgresql:13
+FROM bitnami/postgresql:14
 COPY --from=builder /build/thai_parser/thai_parser.so /opt/bitnami/postgresql/lib/
 COPY --from=builder /build/thai_parser/thai_parser.control /opt/bitnami/postgresql/share/extension/
 COPY --from=builder /build/thai_parser/sql/thai_parser--1.0.sql /opt/bitnami/postgresql/share/extension/
 COPY --from=builder /build/thai_parser/sql/thai_parser--unpackaged--1.0.sql /opt/bitnami/postgresql/share/extension/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/libthai.*  /usr/lib/x86_64-linux-gnu/
+COPY --from=builder /usr/lib/x86_64-linux-gnu/libdatrie*  /usr/lib/x86_64-linux-gnu/
+COPY --from=builder /usr/share/doc/libthai-data /usr/share/doc/libthai-data
+COPY --from=builder /usr/share/doc/libthai0 /usr/share/doc/libthai0
+COPY --from=builder /usr/share/libthai /usr/share/libthai
+
