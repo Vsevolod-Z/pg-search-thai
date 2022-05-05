@@ -17,4 +17,5 @@ COPY --from=builder /usr/lib/x86_64-linux-gnu/libdatrie*  /usr/lib/x86_64-linux-
 COPY --from=builder /usr/share/doc/libthai-data /usr/share/doc/libthai-data
 COPY --from=builder /usr/share/doc/libthai0 /usr/share/doc/libthai0
 COPY --from=builder /usr/share/libthai /usr/share/libthai
+COPY --from=builder /build/thai_dictionary/hunspell/* /opt/bitnami/postgresql/share/tsearch_data/
 
