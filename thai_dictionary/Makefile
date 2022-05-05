@@ -1,5 +1,5 @@
 TSEARCH_DATA_DIR=`pg_config --sharedir`/tsearch_data
-FILES=th_TH.dict th_TH.affix
+FILES=th_th.dict th_th.affix
 
 all: copy
 
