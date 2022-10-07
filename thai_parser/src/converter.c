@@ -57,4 +57,3 @@ void trans_pos(char* msg, int *pos, int pos_len)
         i++;
     }
 }
-
