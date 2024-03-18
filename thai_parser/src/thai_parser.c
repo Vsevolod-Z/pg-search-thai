@@ -10,16 +10,17 @@
  *-------------------------------------------------------------------------
  */
 
-#include "postgres.h"
-#include "fmgr.h"
+#include "/usr/include/postgresql/13/server/postgres.h"
+#include "/usr/include/postgresql/13/server/utils/elog.h"
+#include "/usr/include/postgresql/13/server/fmgr.h"
 #include "thai_parser.h"
 #include "tokenizer.h"
 
 PG_MODULE_MAGIC; //Ensure that it doesn't load improperly versioned object file.
 
 /*
- * prototypes
- */
+* prototypes
+*/
 
 PG_FUNCTION_INFO_V1(thai_parser_start);
 Datum thai_parser_start(PG_FUNCTION_ARGS);
@@ -69,7 +70,7 @@ thai_parser_end(PG_FUNCTION_ARGS)
 Datum
 thai_parser_lextype(PG_FUNCTION_ARGS)
 {
-    LexDescr* descr = (LexDescr*)palloc(sizeof(LexDescr) * (2 + 1));
+    LexDescr* descr = (LexDescr*)palloc(sizeof(LexDescr) * 3);
     descr[0].lexid  = 97;
     descr[0].alias  = pstrdup("a");
     descr[0].descr  = pstrdup("Thai word");
@@ -80,6 +81,5 @@ thai_parser_lextype(PG_FUNCTION_ARGS)
     descr[2].alias  = pstrdup("c");
     descr[2].descr  = pstrdup("Space");
     descr[26].lexid = 0;
-
     PG_RETURN_POINTER(descr);
 }

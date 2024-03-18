@@ -13,7 +13,7 @@
 
 #ifndef TOKENIZER_H
 #define TOKENIZER_H
-
+#include "thai_parser.h"
 /**
   * break the input utf-8 text into thai words and remember its postion.
   *

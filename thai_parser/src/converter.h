@@ -40,5 +40,7 @@ int conv_code(char* from, char* to, char* in, size_t in_len,
   * @param pos_len the position array length of tis-620 string
   */
 void trans_pos(char* msg, int *pos, int pos_len);
-
+_Bool is_utf8(const char* str, size_t len);
+void print_perror_hex(const char* message, const char* variable);
+void print_perror_p(const char* variable,const char* variable2);
 #endif

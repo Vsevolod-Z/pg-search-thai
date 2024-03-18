@@ -40,6 +40,8 @@ postgresql - `pg_config` in order to build this extension.
 
     ```ALTER TEXT SEARCH CONFIGURATION thaicfg ADD MAPPING FOR a WITH simple;```
 
+    ```ALTER TEXT SEARCH CONFIGURATION thaicfg ADD MAPPING FOR b WITH english_stem;```
+
 - Note: This extension is only tested with `UTF-8` encoding. So, it is highly recommended to initial database with utf-8.
 
 ## Example 1
