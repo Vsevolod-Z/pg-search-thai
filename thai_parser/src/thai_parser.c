@@ -51,7 +51,7 @@ thai_parser_get_token(PG_FUNCTION_ARGS)
     parser_ctx_t* ctx = (parser_ctx_t*)PG_GETARG_POINTER(0);
     char** token = (char**)PG_GETARG_POINTER(1);
     int* len = (int*)PG_GETARG_POINTER(2);
-    int type = 0;
+    int type = -1;
     *len = 0;
     type = get_thai_word(ctx, token, len);
     if (type == 0)

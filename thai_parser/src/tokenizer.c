@@ -54,7 +54,7 @@ int get_thai_word(parser_ctx_t* ctx, char** token, int* token_len)
             return 0;
 
         // Allocate position array. Use maximum length
-        cell_num = ctx->buf_len / sizeof(wchar_t) + 1;
+        cell_num = ctx->buf_len + 1;
         ctx->pos = (int*)calloc(sizeof(int), cell_num);
 
         // word break for utf-8 text
@@ -99,7 +99,7 @@ int get_non_thai_word(parser_ctx_t* ctx, char** token, int *token_len)
    
     int ret = 0;
     int len = 0;
-    perror("NON THAI WORD");
+    // perror("NON THAI WORD");
     if(!is_utf8(ctx->text,ctx->text_len)){
         perror("FIASKO BRATAN");
     }

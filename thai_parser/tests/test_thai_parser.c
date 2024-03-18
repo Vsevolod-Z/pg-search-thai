@@ -29,15 +29,15 @@ int main(int argc, char* argv[])
 
         if (len > 0) {
             memcpy(buf, t, len);
-        perror("t");
-        perror(t);
+        // perror("t");
+        // perror(t);
             if(!is_utf8(buf,len))
             {
                 print_perror_hex("NOT UTF8 TEXT!!",buf);
                 return -1;
             }
 
-            printf("%s|", buf);
+            printf("%s:%d| ", buf,ctx.cur_id );
         }
     }
     printf("\n");

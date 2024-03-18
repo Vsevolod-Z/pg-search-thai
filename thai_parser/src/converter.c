@@ -25,6 +25,7 @@
 //     printf("%s: %s\n", label, value);
 //     fflush(stdout);
 // }
+
 int conv_code(char* from, char* to, char* in, size_t in_len, char* out, size_t out_len) {
     
     iconv_t conv;
@@ -33,7 +34,7 @@ int conv_code(char* from, char* to, char* in, size_t in_len, char* out, size_t o
     size_t in_bytes_left = in_len;
     size_t out_bytes_left = out_len;
     perror(from);
-    print_perror_p(out, in);
+    print_perror_p("in", in);
     memset(out, 0, out_len);
     conv = iconv_open(to, from);
     if (conv == (iconv_t)-1) {
@@ -77,38 +78,13 @@ void trans_pos(char* msg, int *pos, int pos_len)
     // the length of current tis 620 string
     int len = 0;
     // a tempory buffer that is used for utf-8 position calculation.
-    char tmp[128];
+    char tmp[12800];
     // the last word break postion of tis-620 string
     int last_pos = 0;
     int i = 0;
-    if (pos_len == 0) {
-        if (strspn(msg, " \t\n\r\f\v") == strlen(msg)) {
-            perror("spaces ONLY");
-            return;
-        }
-        if (i == 0) {
-            len = pos[0];
-            perror("4");
-        } else if (i == pos_len) {
-            len = strlen(msg);
-            perror("5");
-        } else {
-            len += pos[i] - last_pos;
-            perror("6");
-        }
-        last_pos = pos[i];
-        // Если pos_len равно 0, просто переводим всё слово в кодировку UTF-8
-        perror("222222222222TIS -> UTF!!!!!!!!!!!!!!!");
-        conv_code("tis620", "utf-8//TRANSLIT", msg, len, tmp, sizeof(tmp) - 1);
-        // perror("msg");
-        // perror(msg);
-        // perror("tmp");
-        // perror(tmp);
-        pos[i] = strlen(tmp);
-        return;
-    }
 
-    while (i < pos_len) {
+    memset(tmp,0,sizeof(tmp));
+    while (i <= pos_len) {
         if (i == 0) {
             len = pos[0];
             perror("4");
