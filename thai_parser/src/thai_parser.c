@@ -10,8 +10,9 @@
  *-------------------------------------------------------------------------
  */
 
-#include "postgres.h"
-#include "fmgr.h"
+#include "/usr/include/postgresql/13/server/postgres.h"
+#include "/usr/include/postgresql/13/server/utils/elog.h"
+#include "/usr/include/postgresql/13/server/fmgr.h"
 #include "thai_parser.h"
 #include "tokenizer.h"
 

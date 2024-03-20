@@ -7,7 +7,7 @@ DATA = sql/thai_parser--1.0.sql sql/thai_parser--unpackaged--1.0.sql
 REGRESS = thai_parser
 
 LIBDIR = /usr/local/lib/
-LIB_FLAGS = -lthai
+LIB_FLAGS = -lthai -liconv
 PG_CPPFLAGS = -I$(LIBDIR)/include
 UNAME := $(shell uname)
 ifeq ($(UNAME), Darwin)

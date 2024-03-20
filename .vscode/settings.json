@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "thai_parser.h": "c",
+        "string.h": "c",
+        "tokenizer.h": "c",
+        "converter.h": "c"
+    }
+}
