@@ -80,6 +80,9 @@ thai_parser_lextype(PG_FUNCTION_ARGS)
     descr[2].lexid  = 99;
     descr[2].alias  = pstrdup("c");
     descr[2].descr  = pstrdup("Space");
+    descr[3].lexid  = 100;
+    descr[3].alias  = pstrdup("d");
+    descr[3].descr  = pstrdup("Trash");
     descr[26].lexid = 0;
 
     PG_RETURN_POINTER(descr);

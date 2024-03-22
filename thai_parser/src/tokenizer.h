@@ -24,6 +24,12 @@
   */
 int th_ubrk(char* text, int* pos, int text_len);
 
+void print_parser_ctx(const parser_ctx_t* ctx);
+
+int get_char_bytes_num(int firstByte);
+
+int get_convert_char_to_unsigned_char_int(int char_num);
+
 /**
   * get a Thai word from an input string
   *

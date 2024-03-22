@@ -9,7 +9,7 @@
 int main(int argc, char* argv[])
 {
     parser_ctx_t ctx;
-    ctx.text = "\"ทดสอบการสร้างรายการคำไทย hello 123 test test testtest 80%\"";
+    ctx.text = "สวัสดีครับ";
     if (argc > 1)
         ctx.text = argv[1];
     ctx.text_len = strlen(ctx.text);
@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
     char* t = NULL;
     int len = 0;
     char buf[1024];
+    int i = 0;
     while (ctx.text_len > 0) {
         memset(buf, 0, 1024);
         if (get_thai_word(&ctx, &t, &len) == 0) {
@@ -25,11 +26,15 @@ int main(int argc, char* argv[])
         }
 
         if (len > 0) {
-            memcpy(buf, t, len);
-            printf("%s:%d| ", buf,ctx.cur_id );
+            memmove(buf, t, len);
+            printf("%s:%d| " , buf,ctx.cur_id );
         }
+        if (i>1){
+        // return 0;
+        }
+        i++;
     }
     printf("\n");
-    
+
     return 0;
 }
